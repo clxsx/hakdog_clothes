@@ -13,7 +13,7 @@
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'col_clothes.torso'
+			export = 'hakdog_clothes.torso'
 		}
 	},
 	['jeans'] = {
@@ -21,7 +21,7 @@
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'col_clothes.jeans'
+			export = 'hakdog_clothes.jeans'
 		}
 	},
 	['shoes'] = {
@@ -29,7 +29,7 @@
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'col_clothes.shoes'
+			export = 'hakdog_clothes.shoes'
 		}
 	},
 
@@ -38,7 +38,7 @@
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'col_clothes.mask'
+			export = 'hakdog_clothes.mask'
 		}
 	},
 	['ears'] = {
@@ -46,7 +46,7 @@
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'col_clothes.ears'
+			export = 'hakdog_clothes.ears'
 		}
 	},
 	['chain'] = {
@@ -54,7 +54,7 @@
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'col_clothes.chain'
+			export = 'hakdog_clothes.chain'
 		}
 	},
 	['glasses'] = {
@@ -62,7 +62,7 @@
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'col_clothes.glasses'
+			export = 'hakdog_clothes.glasses'
 		}
 	},
 	['vest'] = {
@@ -70,7 +70,7 @@
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'col_clothes.vest'
+			export = 'hakdog_clothes.vest'
 		}
 	},
 	['helmet'] = {
@@ -78,7 +78,7 @@
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'col_clothes.helmet'
+			export = 'hakdog_clothes.helmet'
 		}
 	},
   	['bag'] = {
@@ -86,7 +86,7 @@
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'col_clothes.bag'
+			export = 'hakdog_clothes.bag'
 		}
 	},
 ```
