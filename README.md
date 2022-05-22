@@ -1,6 +1,11 @@
 # All Clothes as item
 **This is a modified version of [rkl_clothes](https://github.com/rklgaming/rkl_clothes) by [RKLGaming](https://github.com/rklgaming)**
 
+# Dependencies
+ * [ox_inventory](https://github.com/overextended/ox_inventory)
+ * [ox_lib](https://github.com/overextended/ox_lib)
+ * [ESX-Legacy](https://github.com/esx-framework/esx-legacy)
+
 **Add these in your ox_inventory/data/items.lua**
 ```lua    
 	['torso'] = {
