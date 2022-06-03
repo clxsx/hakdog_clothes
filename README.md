@@ -16,12 +16,12 @@
 			export = 'hakdog_clothes.torso'
 		}
 	},
-	['jeans'] = {
-		label = 'Jeans',
+	['pants'] = {
+		label = 'Pants',
 		weight = 50,
 		stack = false,
 		client = {
-			export = 'hakdog_clothes.jeans'
+			export = 'hakdog_clothes.pants'
 		}
 	},
 	['shoes'] = {

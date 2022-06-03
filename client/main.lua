@@ -281,9 +281,9 @@ exports('torso', function(slot, data)
     end
 end)
 
-exports('jeans', function(slot, data)
+exports('pants', function(slot, data)
     local ped = PlayerPedId()
-    local theType = 'jeans'
+    local theType = 'pants'
     local metadata = data.metadata
     local theGender = data.metadata.gender
     local pants1 = data.metadata.accessories
@@ -291,17 +291,17 @@ exports('jeans', function(slot, data)
     local gender = IsMpPed(ped)
     if gender == 'Male' then
         if theGender == gender then
-            if GetPedDrawableVariation(ped, 4) == Config.Male.Jeans and not IsAnim then
+            if GetPedDrawableVariation(ped, 4) == Config.Male.Pants and not IsAnim then
                 IsAnim = true
                 LocalPlayer.state.invBusy = true
-                jeansonoff()
+                pantsonoff()
                 SetPedComponentVariation(ped, 4, pants1, pants2, 0)  
                 TriggerServerEvent('remove:clothes', pants1, pants2, theType, metadata)
                 IsAnim = false
                 LocalPlayer.state.invBusy = false
             else
                 lib.notify({
-                    id = 'error_input_jeans1',
+                    id = 'error_input_pants1',
                     title = 'SYSTEM',
                     description = 'You already have a clothes or You have a same clothes',
                     duration = 5000,
@@ -316,7 +316,7 @@ exports('jeans', function(slot, data)
             end
         else
             lib.notify({
-                id = 'error_input_jeans2',
+                id = 'error_input_pants2',
                 title = 'SYSTEM',
                 description = 'Your gender is not a female.',
                 duration = 5000,
@@ -332,17 +332,17 @@ exports('jeans', function(slot, data)
         
     elseif gender == 'Female' then
         if theGender == gender then
-            if GetPedDrawableVariation(ped, 4) == Config.Female.Jeans and not IsAnim then
+            if GetPedDrawableVariation(ped, 4) == Config.Female.Pants and not IsAnim then
                 IsAnim = true
                 LocalPlayer.state.invBusy = true
-                jeansonoff()
+                pantsonoff()
                 SetPedComponentVariation(ped, 4, pants1, pants2, 0)  
                 TriggerServerEvent('remove:clothes', pants1, pants2, theType, metadata)
                 IsAnim = false
                 LocalPlayer.state.invBusy = false
             else
                 lib.notify({
-                    id = 'error_input_jeans3',
+                    id = 'error_input_pants3',
                     title = 'SYSTEM',
                     description = 'You already have a clothes or You have a same clothes',
                     duration = 5000,
@@ -357,7 +357,7 @@ exports('jeans', function(slot, data)
             end
         else
             lib.notify({
-                id = 'error_input_jeans4',
+                id = 'error_input_pants4',
                 title = 'SYSTEM',
                 description = 'Your gender is not a male.',
                 duration = 5000,
@@ -990,22 +990,23 @@ end, false)
 
 RegisterCommand("pants", function(source, args, rawCommand)
     local ped = PlayerPedId()
-    local theProp = 'jeans'
+    local theProp = 'pants'
     local Drawable = GetPedDrawableVariation(ped, 4)
     local Texture = GetPedTextureVariation(ped, 4)
     local gender = IsMpPed(ped) 
     if gender == 'Male' then
-        if Drawable ~= Config.Male.Jeans and not IsAnim then
+        if Drawable ~= Config.Male.Pants and not IsAnim then
             IsAnim = true
-            jeansonoff()
-            SetPedComponentVariation(ped, 4, Config.Male.Jeans, 1, 2)
+            pantsonoff()
+            SetPedComponentVariation(ped, 4, Config.Male.Pants, 1, 2)
             TriggerServerEvent('add:clothes', Drawable, Texture, theProp, gender)
             IsAnim = false
         else
+            IsAnim = false
             lib.notify({
-                id = 'error_jeans',
+                id = 'error_pants',
                 title = 'SYSTEM',
-                description = 'Try again later..',
+                description = 'You don\'t have pants',
                 duration = 5000,
                 position = 'top',
                 style = {
@@ -1017,17 +1018,18 @@ RegisterCommand("pants", function(source, args, rawCommand)
             })
         end
     elseif gender == 'Female' then
-        if Drawable ~= Config.Female.Jeans and not IsAnim then
+        if Drawable ~= Config.Female.Pants and not IsAnim then
             IsAnim = true
-            jeansonoff()
-            SetPedComponentVariation(ped, 4, Config.Female.Jeans, 1, 2)
+            pantsonoff()
+            SetPedComponentVariation(ped, 4, Config.Female.Pants, 1, 2)
             TriggerServerEvent('add:clothes', Drawable, Texture, theProp, gender)
             IsAnim = false
         else
+            IsAnim = false
             lib.notify({
-                id = 'error_jeans',
+                id = 'error_pants',
                 title = 'SYSTEM',
-                description = 'Try again later..',
+                description = 'You don\'t have pants',
                 duration = 5000,
                 position = 'top',
                 style = {
@@ -1056,10 +1058,11 @@ RegisterCommand("shoes", function(source, args, rawCommand)
             TriggerServerEvent('add:clothes', Drawable, Texture, theProp, gender)
             IsAnim = false
         else
+            IsAnim = false
             lib.notify({
                 id = 'error_shoes',
                 title = 'SYSTEM',
-                description = 'Try again later..',
+                description = 'You don\'t have shoes',
                 duration = 5000,
                 position = 'top',
                 style = {
@@ -1078,10 +1081,11 @@ RegisterCommand("shoes", function(source, args, rawCommand)
             TriggerServerEvent('add:clothes', Drawable, Texture, theProp, gender)
             IsAnim = false
         else
+            IsAnim = false
             lib.notify({
                 id = 'error_shoes',
                 title = 'SYSTEM',
-                description = 'Try again later..',
+                description = 'You don\'t have shoes',
                 duration = 5000,
                 position = 'top',
                 style = {
@@ -1109,6 +1113,7 @@ RegisterCommand("mask", function(source, args, rawCommand)
             TriggerServerEvent('add:clothes', Drawable, Texture, theProp, gender)
             IsAnim = false
         else
+            IsAnim = false
             lib.notify({
                 id = 'error_mask',
                 title = 'SYSTEM',
@@ -1481,48 +1486,53 @@ function IsMpPed(ped)
 end
 
 function torsoonoff()
-    PlayClothesAnims("clothingtie", "try_tie_positive_a", 1500)
+    Collective.PlayAnim("clothingtie", "try_tie_positive_a", 1500)
 end
 			
 function hatofon()
-    PlayClothesAnims("mp_masks@standard_car@ds@", "put_on_mask", 600)  
+    Collective.PlayAnim("mp_masks@standard_car@ds@", "put_on_mask", 600)  
 end
 					
 function maskonoff()				
-    PlayClothesAnims("mp_masks@standard_car@ds@", "put_on_mask", 600)  
+    Collective.PlayAnim("mp_masks@standard_car@ds@", "put_on_mask", 600)  
 end
 
 function earsonoff()
-    PlayClothesAnims("mp_cp_stolen_tut", "b_think", 600)  			             
+    Collective.PlayAnim("mp_cp_stolen_tut", "b_think", 600)  			             
 end			
 function tshirtonoff()
-    PlayClothesAnims("clothingtie", "try_tie_positive_a", 1500)			           
+    Collective.PlayAnim("clothingtie", "try_tie_positive_a", 1500)			           
 end
 			
 function armsonoff()	
-    PlayClothesAnims("nmt_3_rcm-10", "cs_nigel_dual-10", 600) 				            
+    Collective.PlayAnim("nmt_3_rcm-10", "cs_nigel_dual-10", 600) 				            
 end
 			
-function jeansonoff()
-    PlayClothesAnims("re@construction", "out_of_breath", 1300)				           
+function pantsonoff()
+    Collective.PlayAnim("re@construction", "out_of_breath", 1300)				           
 end
 			
 function shoesonoff()
-    PlayClothesAnims("random@domestic", "pickup_low", 1300)		
+    Collective.PlayAnim("random@domestic", "pickup_low", 1300)		
 end
 			
 function bagonoff()
-    PlayClothesAnims("anim@heists@ornate_bank@grab_cash", "intro", 1300)					            
+    Collective.PlayAnim("anim@heists@ornate_bank@grab_cash", "intro", 1300)					            
 end
 			
 function chainonoff()
-    PlayClothesAnims("clothingtie", "try_tie_positive_a", 1500)	
+    Collective.PlayAnim("clothingtie", "try_tie_positive_a", 1500)	
 end
 			
 function glassesonoff()
-    PlayClothesAnims("clothingspecs", "take_off", 1300)	
+    Collective.PlayAnim("clothingspecs", "take_off", 1300)	
 end
 
 function vestonoff()
-    PlayClothesAnims("clothingtie", "try_tie_positive_a", 1500)
+    Collective.PlayAnim("clothingtie", "try_tie_positive_a", 1500)
 end
+
+RegisterNetEvent('col_clothes:Notification')
+AddEventHandler('col_clothes:Notification', function(data)
+    lib.notify(data)
+end)

@@ -1,7 +1,7 @@
 Config = {}
 Config.Male = {
     Torso = 15,
-    Jeans = 14,
+    Pants = 14,
     Shoes = 5,
     Bag = 0,
     Gloves = 15,
@@ -16,7 +16,7 @@ Config.Male = {
 
 Config.Female = {
     Torso = 15,
-    Jeans = 14,
+    Pants = 14,
     Shoes = 5,
     Bag = 0,
     Gloves = 15,
