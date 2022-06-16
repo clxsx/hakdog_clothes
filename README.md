@@ -1,6 +1,8 @@
 # All Clothes as item
 **This is a modified version of [rkl_clothes](https://github.com/rklgaming/rkl_clothes) by [RKLGaming](https://github.com/rklgaming)**
+
 **for support [Discord](https://discord.gg/RvXwt4wMVq)**
+
 # Dependencies
  * [ox_inventory](https://github.com/overextended/ox_inventory)
  * [ox_lib](https://github.com/overextended/ox_lib)
