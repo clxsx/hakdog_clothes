@@ -1,5 +1,5 @@
 {
-    "date": "October 9, 2022",
-    "version": "0.1.4",
-    "changelog": "Fixed Ban System, Fixed Anorak Global Ban, Added /anorak refresh global banlist"
+    "date": "October 13, 2022",
+    "version": "0.1.5",
+    "changelog": "Fixed Identifier Checker, Added Exploited Events, New Exploited Events, New Mod Menu Detection /anorak install dtc"
 }
